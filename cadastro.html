@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro </title>
+    <link rel="stylesheet" href="cadastrar.css">
+</head>
+<body>
+    <div class="background-shape"></div>
+    <main class="login-container">
+        <form class="login-card">
+            <h1>Crie sua conta</h1>
+            <hr>
+            <label for="nome">Nome completo*</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">Seu e-mail*</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="dataNascimento">Data de nascimento*</label>
+            <input type="date" id="dataNascimento" name="dataNascimento" required>
+
+            <label for="usuario">Nome de usuário*</label>
+            <input type="text" id="usuario" name="usuario" required>
+
+            <label for="senha">Crie uma senha*</label>
+            <input type="password" id="senha" name="senha" required>
+
+            <a href="login.html" target="_blank" class="btn-entrar">Cadastrar</a>
+            <button type="button" class="btn-secundario" onclick="window.location.href='login.html'">Já tenho conta</button>
+            <p class="recaptcha-text">
+                Esta página é protegida pelo Google reCAPTCHA para garantir que você não é um robô.
+                <a href="https://www.google.com/recaptcha/about/" target="_blank">Saiba mais.</a>
+              </p>
+              
+        </form>
+    </main>
+</body>
+</html>

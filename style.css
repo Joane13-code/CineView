@@ -1,0 +1,216 @@
+
+/* Fundo com blur, rotacionado e com brilho */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20px; /* substitui top, left, width, height */
+  background: url('https://cdn.prod.website-files.com/60ff690cd7b0537edb99a29a/67f00d8a93ba784ef2a3a395_Cata%CC%81logo%20de%20filmes%20completos%20da%20Brasil%20Paralelo%20-%20capa-min.jpg') no-repeat center/cover;
+  transform: rotate(-3deg) scale(1.1);
+  filter: blur(8px) brightness(0.6);
+  pointer-events: none;
+  z-index: -1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to right, #000, #111);
+  color: #fff;
+  padding: 20px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+header {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #4c036e;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+  margin-left: 30%;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #6a0dad;
+}
+
+.banner-slogan {
+  color: #4c036e;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 30px;
+  margin-top: 10px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.7);
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.card-filme h3 {
+  color: #fff;
+  font-size: 1.1em;
+  margin: 0;
+}
+
+.search-lang-container {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.search-lang-container input[type="search"] {
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 2px solid #4c036e;
+  width: 220px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #222;
+}
+
+.search-lang-container select {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #4c036e;
+  background-color: #4c036e;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.categorias {
+  margin: 30px 0;
+  text-align: left;
+}
+
+.CineMax {
+  color: #4c036e;
+}
+
+.categorias h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.categorias ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.categorias li {
+  padding: 8px 16px;
+  background: #4c036e;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.categorias li:hover {
+  background: #6a0dad;
+}
+
+main h2 {
+  text-align: left;
+  margin: 20px 0;
+  font-size: 2em;
+  color: #fff;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card-filme {
+  background: #111;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #9b59b6cc;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 10px;
+}
+
+.card-filme:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #9b59b6ff;
+}
+
+.card-filme img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  height: 270px;
+  object-fit: cover;
+}
+
+.card-filme h3 {
+  font-size: 1.1em;
+  margin: 0;
+  color: #fff;
+}
+
+.pesquisa {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.pesquisa p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.pesquisa input[type="search"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1px solid #fff;
+  border-radius: 45px;
+  border-color: #4c036e;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+  outline: none;
+}
+
+.pesquisa input[type="search"]:focus {
+  box-shadow: 0 4px 12px rgb(255, 255, 255);
+  border-color: #4c036e;
+}
+
