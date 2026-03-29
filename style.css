@@ -1,9 +1,24 @@
 
+/* ===== VARIÁVEIS CSS SEMÂNTICAS ===== */
+:root {
+  --primary-color: #4c036e;
+  --primary-hover: #6a0dad;
+  --secondary-color: #9b59b6;
+  --accent-color: #e50914;
+  --background-dark: #000;
+  --background-gray: #111;
+  --background-card: #1a001f;
+  --text-primary: #fff;
+  --text-secondary: #ccc;
+  --border-radius: 12px;
+  --transition-default: 0.3s ease;
+}
+
 /* Fundo com blur, rotacionado e com brilho */
 body::before {
   content: "";
   position: fixed;
-  inset: -20px; /* substitui top, left, width, height */
+  inset: -20px;
   background: url('https://cdn.prod.website-files.com/60ff690cd7b0537edb99a29a/67f00d8a93ba784ef2a3a395_Cata%CC%81logo%20de%20filmes%20completos%20da%20Brasil%20Paralelo%20-%20capa-min.jpg') no-repeat center/cover;
   transform: rotate(-3deg) scale(1.1);
   filter: blur(8px) brightness(0.6);
@@ -11,6 +26,7 @@ body::before {
   z-index: -1;
 }
 
+/* Resetar e padronizar elementos */
 * {
   margin: 0;
   padding: 0;
@@ -18,9 +34,9 @@ body::before {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(to right, #000, #111);
-  color: #fff;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  background: linear-gradient(to right, var(--background-dark), var(--background-gray));
+  color: var(--text-primary);
   padding: 20px;
   min-height: 100vh;
   overflow-x: hidden;
@@ -31,96 +47,163 @@ body {
 header {
   text-align: left;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 header h1 {
   font-size: 3em;
   margin-bottom: 10px;
+  color: var(--text-primary);
+  font-weight: bold;
 }
 
 header p {
   font-size: 1.2em;
   margin-bottom: 20px;
+  color: var(--text-secondary);
 }
 
-.btn {
+.header-container {
+  flex: 1;
+}
+
+.header-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+/* ===== BOTÕES ===== */
+.btn,
+.btn-login,
+button {
   display: inline-block;
   padding: 10px 20px;
-  background: #4c036e;
-  color: #fff;
+  background: var(--primary-color);
+  color: var(--text-primary);
   font-weight: bold;
   border-radius: 5px;
   text-decoration: none;
-  transition: background 0.3s;
-  margin-left: 30%;
+  transition: background var(--transition-default), transform var(--transition-default);
   cursor: pointer;
+  border: none;
 }
 
-.btn:hover {
-  background: #6a0dad;
+.btn:hover,
+.btn-login:hover,
+button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn:focus,
+.btn-login:focus {
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 2px;
 }
 
 .banner-slogan {
-  color: #4c036e;
+  color: var(--primary-color);
   font-weight: bold;
   font-size: 2rem;
   padding: 30px;
   margin-top: 10px;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   text-align: center;
   box-shadow: 0 0 10px rgba(0,0,0,0.7);
   line-height: 1.5;
   white-space: pre-line;
 }
 
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: bold;
+  margin: 0;
+  color: var(--text-primary);
+}
+
 .card-filme h3 {
-  color: #fff;
+  color: var(--text-primary);
   font-size: 1.1em;
   margin: 0;
 }
 
+/* ===== NAVEGAÇÃO E IDIOMA ===== */
+.nav-buttons,
 .search-lang-container {
-  margin-top: 15px;
   display: flex;
   gap: 15px;
   align-items: center;
+  margin-top: 15px;
 }
 
-.search-lang-container input[type="search"] {
+.search-lang-container input[type="search"],
+input[type="search"] {
   padding: 8px 14px;
   border-radius: 20px;
-  border: 2px solid #4c036e;
+  border: 2px solid var(--primary-color);
   width: 220px;
   font-size: 1rem;
-  color: #fff;
+  color: var(--text-primary);
   background-color: #222;
+  transition: border-color var(--transition-default);
 }
 
-.search-lang-container select {
+.search-lang-container input[type="search"]:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 8px rgba(155, 89, 182, 0.5);
+}
+
+.search-lang-container select,
+.language-selector {
   padding: 8px 14px;
   border-radius: 8px;
-  border: 1px solid #4c036e;
-  background-color: #4c036e;
+  border: 1px solid var(--primary-color);
+  background-color: var(--primary-color);
   cursor: pointer;
   font-size: 1rem;
-  color: #fff;
+  color: var(--text-primary);
+  transition: background-color var(--transition-default);
 }
 
+.search-lang-container select:hover {
+  background-color: var(--primary-hover);
+}
+
+/* ===== SEÇÃO DE CATEGORIAS ===== */
+.categories-section,
 .categorias {
   margin: 30px 0;
   text-align: left;
 }
 
 .CineMax {
-  color: #4c036e;
+  color: var(--primary-color);
 }
 
+.categories-section h2,
 .categorias h2 {
   font-size: 1.8em;
   margin-bottom: 10px;
-  color: #fff;
+  color: var(--text-primary);
 }
 
+.categories-list,
 .categorias ul {
   list-style: none;
   display: flex;
@@ -128,89 +211,417 @@ header p {
   gap: 10px;
 }
 
+.category-btn,
 .categorias li {
   padding: 8px 16px;
-  background: #4c036e;
+  background: var(--primary-color);
   border-radius: 20px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background var(--transition-default), transform var(--transition-default);
+  border: none;
+  color: var(--text-primary);
+  font-weight: 500;
 }
 
+.category-btn:hover,
 .categorias li:hover {
-  background: #6a0dad;
+  background: var(--primary-hover);
+  transform: translateY(-3px);
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 main h2 {
   text-align: left;
   margin: 20px 0;
   font-size: 2em;
-  color: #fff;
+  color: var(--text-primary);
 }
 
+/* ===== GALERIA DE FILMES ===== */
+.gallery,
 .galeria {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+}
+
+.gallery.compact,
+.galeria.compact {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 250px));
+  justify-content: center;
 }
 
 .card-filme {
-  background: #111;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #9b59b6cc;
+  background: var(--background-gray);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 10px rgba(155, 89, 182, 0.8);
   text-align: center;
-  color: #fff;
+  color: var(--text-primary);
   text-decoration: none;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform var(--transition-default), box-shadow var(--transition-default);
   padding: 10px;
+  cursor: pointer;
 }
 
 .card-filme:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px #9b59b6ff;
+  box-shadow: 0 0 20px rgba(155, 89, 182, 1);
 }
 
 .card-filme img {
   width: 100%;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   margin-bottom: 10px;
   height: 270px;
   object-fit: cover;
+  transition: transform var(--transition-default);
 }
 
-.card-filme h3 {
-  font-size: 1.1em;
-  margin: 0;
-  color: #fff;
+.card-filme:hover img {
+  transform: scale(1.02);
 }
 
+.no-results {
+  grid-column: 1 / -1;
+  padding: 25px;
+  border: 1px dashed var(--secondary-color);
+  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* ===== SEÇÃO DE BUSCA ===== */
+.search-section,
 .pesquisa {
   text-align: center;
   margin: 40px 0;
 }
 
+.search-title,
 .pesquisa p {
   font-size: 1.2rem;
   margin-bottom: 10px;
-  color: #fff;
+  color: var(--text-primary);
 }
 
+.search-box input[type="search"],
 .pesquisa input[type="search"] {
   width: 100%;
   max-width: 400px;
   padding: 12px 15px;
   font-size: 1rem;
-  border: 1px solid #fff;
+  border: 1px solid var(--text-primary);
   border-radius: 45px;
-  border-color: #4c036e;
+  border-color: var(--primary-color);
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow var(--transition-default), border-color var(--transition-default);
   outline: none;
 }
 
+.search-box input[type="search"]:focus,
 .pesquisa input[type="search"]:focus {
-  box-shadow: 0 4px 12px rgb(255, 255, 255);
-  border-color: #4c036e;
+  box-shadow: 0 4px 12px rgba(155, 89, 182, 0.8);
+  border-color: var(--secondary-color);
 }
 
+
+
+
+
+
+/* ===== DETALHES DO FILME ===== */
+.movie-details,
+#detalhes {
+  display: none;
+  background: radial-gradient(circle at top, var(--background-card), var(--background-dark));
+  min-height: 100vh;
+  border-radius: var(--border-radius);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Layout do detalhe do filme */
+.top-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Seção do poster */
+.poster-box {
+  flex: 1;
+  min-width: 350px;
+}
+
+.poster {
+  width: 100%;
+  max-width: 390px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 40px rgba(0,0,0,0.4);
+  transition: transform var(--transition-default);
+}
+
+.poster:hover {
+  transform: scale(1.02);
+}
+
+/* Seção de informações */
+.info-box {
+  flex: 2;
+  min-width: 300px;
+}
+
+.info-box h1 {
+  margin-bottom: 10px;
+  color: var(--text-primary);
+  font-size: 2.5rem;
+}
+
+.info-box p {
+  line-height: 1.6;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+}
+
+/* Classificação indicativa */
+.classificacao {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.classificacao strong {
+  background: var(--accent-color);
+  padding: 4px 10px;
+  border-radius: 6px;
+  color: white;
+}
+
+/* Botões de ação */
+.botoes-acao button {
+  margin-top: 15px;
+  margin-right: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary-hover);
+  color: white;
+  cursor: pointer;
+  transition: background var(--transition-default), transform var(--transition-default);
+  font-weight: 500;
+}
+
+.botoes-acao button:hover {
+  background: var(--secondary-color);
+  transform: scale(1.05);
+}
+
+/* Seção de trailer */
+.trailer {
+  margin-top: 30px;
+}
+
+.trailer iframe {
+  width: 100%;
+  max-width: 1500px;
+  height: 550px;
+  border-radius: var(--border-radius);
+  border: none;
+}
+
+/* Crítica e direção */
+.critica,
+.direcao {
+  margin-top: 25px;
+  padding: 15px;
+  border-left: 4px solid var(--primary-hover);
+  background: rgba(82, 30, 95, 0.5);
+  border-radius: 6px;
+}
+
+.critica h3,
+.direcao h3 {
+  color: var(--secondary-color);
+  margin-bottom: 10px;
+}
+
+/* Seção de elenco */
+.elenco {
+  margin-top: 30px;
+}
+
+.elenco h2 {
+  color: var(--text-primary);
+  margin-bottom: 15px;
+}
+
+.elenco-grid {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Card do ator */
+.ator {
+  text-align: center;
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.ator img {
+  width: 100px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: transform var(--transition-default);
+}
+
+.ator img:hover {
+  transform: scale(1.08);
+}
+
+.ator p {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Informações extras */
+.extra-info {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  background: rgba(82, 30, 95, 0.5);
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 3px solid var(--secondary-color);
+}
+
+.extra-info p {
+  margin-bottom: 5px;
+  color: var(--text-secondary);
+}
+
+/* Sinopse */
+.sinopse-box {
+  margin-top: 10px;
+}
+
+.sinopse-box h2 {
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+  color: var(--primary-hover);
+}
+
+.sinopse-box p {
+  line-height: 1.6;
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+/* Botão voltar */
+.btn-back,
+.btn-voltar {
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  border: none;
+  background: var(--primary-hover);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background var(--transition-default), transform var(--transition-default);
+  font-weight: 500;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.btn-back:hover,
+.btn-voltar:hover {
+  background: var(--secondary-color);
+  transform: translateX(-3px);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  header h1 {
+    font-size: 2em;
+  }
+
+  .top-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery,
+  .galeria {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .trailer iframe {
+    height: 300px;
+  }
+
+  .btn-back,
+  .btn-voltar {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  main h2 {
+    font-size: 1.5em;
+  }
+
+  .gallery,
+  .galeria {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .card-filme img {
+    height: 180px;
+  }
+
+  .search-box input[type="search"],
+  input[type="search"] {
+    max-width: 100%;
+  }
+
+  .botoes-acao button {
+    margin-right: 5px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== ACESSIBILIDADE ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
